@@ -4,6 +4,7 @@ let ObjectId = Schema.Types.ObjectId
 let bcrypt = require('bcryptjs')
 const SALT_FACTOR = 10
 
+
 let schema = new Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true, dropDups: true },

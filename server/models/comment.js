@@ -1,7 +1,7 @@
 let mongoose = require('mongoose')
 let Schema = mongoose.Schema
 let ObjectId = Schema.Types.ObjectId
-var schemaName = "Log"
+var schemaName = "Comment"
 
 let schema = new Schema({
     title: { type: String, required: true },
@@ -9,9 +9,9 @@ let schema = new Schema({
     body: { type: String, required: true},
     author: { type: String, required: true},
     userId: {type: ObjectId, ref: 'User', required: true},
-    shipId: {type: ObjectId, ref: 'Ship', required: true}
+    logId: {type: ObjectId, ref: 'Log', required: true}
 
   })
 
 
-module.exports = mongoose.model(schemaName, schema)
+  module.exports = mongoose.model(schemaName, schema)
