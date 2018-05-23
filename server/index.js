@@ -16,7 +16,7 @@ app.use(bp.urlencoded({
 }))
 
 let auth = require('./auth/routes')
-app.use(auth.expressSession)
+app.use(auth.session)
 app.use(auth.router)
 //Code above is always the same ^^
 
