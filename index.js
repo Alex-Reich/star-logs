@@ -21,15 +21,11 @@ app.use(auth.router)
 //Code above is always the same ^^
 
 //routes  We had models here????
-var users = require('./server/routes/users')
 var ships = require('./server/routes/ships')
 var logs = require('./server/routes/logs')
 var comments = require('./server/routes/comments')
 
-app.use(users.router)
 app.use(ships.router)
-app.use(logs.router)
-app.use(comments.router)
 
 app.use('/members/*', (req, res, next) => {
   if (!req.session.uid) {
@@ -39,6 +35,10 @@ app.use('/members/*', (req, res, next) => {
   }
   next()
 })
+
+app.use('/members/', logs.router)
+app.use('/members/', comments.router)
+
 
 app.use('/admin/*', (req, res, next) => {
   /**

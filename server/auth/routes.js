@@ -33,10 +33,10 @@ router.post('/login', (req, res) => {
             return res.status(401).send({error: 'Invalid Email or Password'})
           }
           req.session.uid = user._id;
-          req.session.save(err=>{
-            if(err){
-              return res.send(err)
-            }
+          // req.session.save(err=>{
+          //   if(err){
+          //     return res.send(err)
+          //   }
           })
           user.password = null
           delete user.password
@@ -83,6 +83,11 @@ router.get('/authenticate', (req,res) => {
     })
   })
 })
+
+// router.put('/logs', (req, res) >{
+  
+// }
+// )
 
 
 
