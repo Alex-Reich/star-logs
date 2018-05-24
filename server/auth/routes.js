@@ -84,10 +84,13 @@ router.get('/authenticate', (req,res) => {
   })
 })
 
-// router.put('/logs', (req, res) >{
-  
-// }
-// )
+
+router.get('/logs', (req, res) =>{
+ if (!req.params.uid) {
+   
+ } 
+}
+)
 
 
 
