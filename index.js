@@ -6,7 +6,7 @@ var port = 3000
 
 app.use(cors())
 //Fire up database connection
-require('./db/mlab-config')
+require('./server/db/mlab-config')
 
 
 //REGISTER MIDDLEWEAR
@@ -15,16 +15,16 @@ app.use(bp.urlencoded({
   extended: true
 }))
 
-let auth = require('./auth/routes')
+let auth = require('./server/auth/routes')
 app.use(auth.session)
 app.use(auth.router)
 //Code above is always the same ^^
 
 //routes
-var users = require('./models/user')
-var ships = require('./models/ship')
-var logs = require('./models/log')
-var comments = require('./models/comment')
+var users = require('./server/models/user')
+var ships = require('./server/models/ship')
+var logs = require('./server/models/log')
+var comments = require('./server/models/comment')
 
 app.use(users.router)
 app.use(ships.router)
