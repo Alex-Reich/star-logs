@@ -20,11 +20,11 @@ app.use(auth.session)
 app.use(auth.router)
 //Code above is always the same ^^
 
-//routes
-var users = require('./server/models/user')
-var ships = require('./server/models/ship')
-var logs = require('./server/models/log')
-var comments = require('./server/models/comment')
+//routes  We had models here????
+var users = require('./server/routes/users')
+var ships = require('./server/routes/ships')
+var logs = require('./server/routes/logs')
+var comments = require('./server/routes/comments')
 
 app.use(users.router)
 app.use(ships.router)
@@ -62,10 +62,6 @@ app.use('/admin/*', (req, res, next) => {
      */
 })
 
-
-app.use('/members/', galaxies.router)
-app.use(stars.router)
-app.use(planets.router)
 
 //Catch all
 
